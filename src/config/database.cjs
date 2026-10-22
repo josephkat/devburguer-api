@@ -7,11 +7,11 @@ if (fs.existsSync(envPath)) {
 }
 
 module.exports = {
-    dialect: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'admin',
-    password: '123456',
+    dialect: process.env.DB_DIALECT,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
     database: process.env.DATABASE || 'dev-burguer-db',
     define: {
         timestamps: true,
