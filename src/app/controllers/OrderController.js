@@ -24,14 +24,13 @@ class OrderController {
 		const productIds = products.map((product) => product.id);
 
 		const findedProducts = await Product.findAll({
-
 			where: {
 				id: productIds,
 			},
 			include: {
 				model: Category,
-				as: "category",
-				attributes: ["name"],
+				as: 'category_name',
+				attributes: ['name'],
 			},
 		});
 
@@ -42,7 +41,7 @@ class OrderController {
 				id: product.id,
 				name: product.name,
 				price: product.price,
-				category: product.category.name,
+				category: product.category_name.name,
 				url: product.url,
 				quantity,
 				status: 'pending',
